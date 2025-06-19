@@ -14,13 +14,21 @@
 	
 	One is the using the second camera to render another view or independent world render.
 
+	Another is using pushing input.
+```
+@export var sub_viewport: SubViewport
+#...
+func _input(event):
+	sub_viewport.get_viewport().push_input(event)
+```
+	Note that it required Control UI to get the handle input.
 
-# notes:
+# Notes:
 - small size offset not working for rect texture a lot of work.
 	- 128x128 does not work
 	- 512x512 work
 
-# refs:
+# References:
 - Godot 4 3D Mouse Tutorial
 	- https://www.youtube.com/watch?v=mJRDyXsxT9g
 - https://www.reddit.com/r/godot/comments/1hjloer/how_to_ray_cast_from_mouse_position_in_a/

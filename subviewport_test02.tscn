@@ -73,12 +73,12 @@ shadow_enabled = true
 [node name="WorldEnvironment" type="WorldEnvironment" parent="SubViewport/Node3D2"]
 environment = SubResource("Environment_l5ono")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewport/Node3D2"]
+[node name="pointer" type="MeshInstance3D" parent="SubViewport/Node3D2"]
 mesh = SubResource("BoxMesh_oqta8")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Control" type="Control" parent="CanvasLayer"]
+[node name="Control" type="Control" parent="CanvasLayer" node_paths=PackedStringArray("pointer")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -86,6 +86,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("4_u5oqt")
+pointer = NodePath("../../SubViewport/Node3D2/pointer")
 
 [node name="Label" type="Label" parent="CanvasLayer/Control"]
 layout_mode = 0

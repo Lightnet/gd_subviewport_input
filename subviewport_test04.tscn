@@ -1,10 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://rmg1bn5ew0st"]
+[gd_scene load_steps=11 format=3 uid="uid://rmg1bn5ew0st"]
 
-[ext_resource type="Script" uid="uid://b6kgijd6pt2yv" path="res://scripts/control_input_test02.gd" id="1_gp4t1"]
+[ext_resource type="Script" uid="uid://d0i0p7uywuvdh" path="res://scripts/control_input_test03.gd" id="1_gp4t1"]
 [ext_resource type="Script" uid="uid://l48mxrrp55ib" path="res://scripts/static_body_rotate.gd" id="2_w10ub"]
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_8ksqx"]
-viewport_path = NodePath("CanvasLayer/SubViewportContainer/SubViewport")
 
 [sub_resource type="BoxMesh" id="BoxMesh_ol6g4"]
 
@@ -52,14 +49,6 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
 text = "Test"
-
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control"]
-visible = false
-layout_mode = 0
-offset_right = 247.0
-offset_bottom = 247.0
-mouse_default_cursor_shape = 2
-texture = SubResource("ViewportTexture_8ksqx")
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="CanvasLayer"]
 custom_minimum_size = Vector2(128, 128)

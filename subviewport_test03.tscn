@@ -1,10 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://dtclh0dfjfylq"]
+[gd_scene load_steps=11 format=3 uid="uid://dtclh0dfjfylq"]
 
 [ext_resource type="Script" uid="uid://l48mxrrp55ib" path="res://scripts/static_body_rotate.gd" id="1_ohl6t"]
-[ext_resource type="Script" uid="uid://b6kgijd6pt2yv" path="res://scripts/control_input_test02.gd" id="2_ohl6t"]
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_8ksqx"]
-viewport_path = NodePath("CanvasLayer/SubViewportContainer/SubViewport")
+[ext_resource type="Script" uid="uid://d0i0p7uywuvdh" path="res://scripts/control_input_test03.gd" id="1_wujbh"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_ol6g4"]
 
@@ -43,7 +40,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("2_ohl6t")
+script = ExtResource("1_wujbh")
 sub_viewport = NodePath("../SubViewportContainer/SubViewport")
 pointer = NodePath("../SubViewportContainer/SubViewport/Node3D2/MeshInstance3D")
 
@@ -53,14 +50,6 @@ offset_right = 40.0
 offset_bottom = 23.0
 text = "Test"
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control"]
-visible = false
-layout_mode = 0
-offset_right = 247.0
-offset_bottom = 247.0
-mouse_default_cursor_shape = 2
-texture = SubResource("ViewportTexture_8ksqx")
-
 [node name="SubViewportContainer" type="SubViewportContainer" parent="CanvasLayer"]
 custom_minimum_size = Vector2(512, 512)
 offset_right = 217.0
@@ -69,6 +58,7 @@ stretch = true
 
 [node name="SubViewport" type="SubViewport" parent="CanvasLayer/SubViewportContainer"]
 own_world_3d = true
+handle_input_locally = false
 render_target_update_mode = 4
 
 [node name="Node3D2" type="Node3D" parent="CanvasLayer/SubViewportContainer/SubViewport"]

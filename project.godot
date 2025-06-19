@@ -12,7 +12,7 @@ config_version=5
 
 config/name="gd subviewport input"
 config/tags=PackedStringArray("3d", "experiment", "subviewport")
-run/main_scene="uid://rmg1bn5ew0st"
+run/main_scene="uid://dtclh0dfjfylq"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 

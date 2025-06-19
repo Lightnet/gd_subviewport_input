@@ -6,8 +6,8 @@ extends Control
 
 var ray_length = 100
 #works
-func _ready() -> void:
-	pass # Replace with function body.
+#func _ready() -> void:
+	#pass
 
 func _input(event):
 	if event is InputEventMouseButton:
@@ -26,7 +26,6 @@ func _input(event):
 			mouse_position.x = mouse_position.x - screen_view.x
 			mouse_position.y = mouse_position.y - screen_view.y
 			pass
-		
 		
 		var camera:Camera3D = sub_viewport.get_viewport().get_camera_3d()
 		# always the same in both

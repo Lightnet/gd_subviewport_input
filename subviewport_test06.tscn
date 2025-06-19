@@ -1,7 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://cuxoxblg7a4rd"]
+[gd_scene load_steps=12 format=3 uid="uid://cn7456lmb3att"]
 
-[ext_resource type="Script" uid="uid://l48mxrrp55ib" path="res://scripts/static_body_rotate.gd" id="3_cr2ss"]
-[ext_resource type="Script" uid="uid://b72dceauioxof" path="res://scripts/control_input_test01.gd" id="4_w8xc1"]
+[ext_resource type="Script" uid="uid://l48mxrrp55ib" path="res://scripts/static_body_rotate.gd" id="1_3uhwm"]
+[ext_resource type="Script" uid="uid://d0i0p7uywuvdh" path="res://scripts/control_input_test03.gd" id="2_m7oyx"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_ol6g4"]
 
@@ -29,32 +29,8 @@ size = Vector3(0.1, 0.1, 0.1)
 [sub_resource type="ViewportTexture" id="ViewportTexture_8ksqx"]
 viewport_path = NodePath("SubViewport")
 
-[sub_resource type="GDScript" id="GDScript_uvsfh"]
-script/source = "extends Node
-# nope input
-#@onready var sub_viewport: SubViewport = $\"../SubViewport\"
-
-func _ready() -> void:
-	pass
-
-func _process(delta: float) -> void:
-	pass
-	
-func _Input(event):
-	if event is InputEventMouseButton:
-		print(\"Mouse Click/Unclick at: \", event.position)
-	elif event is InputEventMouseMotion:
-		print(\"Mouse Motion at: \", event.position)
-	
-func _unhandled_input(event: InputEvent) -> void:
-	print(\"test node\")
-	if event is InputEventMouseMotion:
-		print(\"move?\")
-		#var camera:Camera3D = sub_viewport.get_viewport().get_camera_3d()
-	
-	
-	pass
-"
+[sub_resource type="BoxMesh" id="BoxMesh_pol1q"]
+size = Vector3(1, 0.5, 1)
 
 [node name="Node" type="Node"]
 
@@ -71,7 +47,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.68447)
 target_position = Vector3(0, 0, -5)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="SubViewport/Node3D2"]
-script = ExtResource("3_cr2ss")
+script = ExtResource("1_3uhwm")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewport/Node3D2/StaticBody3D"]
 mesh = SubResource("BoxMesh_ol6g4")
@@ -81,7 +57,7 @@ skeleton = NodePath("../..")
 shape = SubResource("BoxShape3D_gxbh7")
 
 [node name="StaticBody3D2" type="StaticBody3D" parent="SubViewport/Node3D2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.35028, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.21594, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewport/Node3D2/StaticBody3D2"]
 mesh = SubResource("BoxMesh_ol6g4")
@@ -97,20 +73,21 @@ shadow_enabled = true
 [node name="WorldEnvironment" type="WorldEnvironment" parent="SubViewport/Node3D2"]
 environment = SubResource("Environment_l5ono")
 
-[node name="pointer" type="MeshInstance3D" parent="SubViewport/Node3D2"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewport/Node3D2"]
 mesh = SubResource("BoxMesh_oqta8")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Control" type="Control" parent="CanvasLayer" node_paths=PackedStringArray("pointer")]
+[node name="Control" type="Control" parent="CanvasLayer" node_paths=PackedStringArray("sub_viewport", "pointer")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("4_w8xc1")
-pointer = NodePath("../../SubViewport/Node3D2/pointer")
+script = ExtResource("2_m7oyx")
+sub_viewport = NodePath("../../SubViewport")
+pointer = NodePath("../../SubViewport/Node3D2/MeshInstance3D")
 
 [node name="Label" type="Label" parent="CanvasLayer/Control"]
 layout_mode = 0
@@ -120,18 +97,21 @@ text = "Test"
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control"]
 layout_mode = 0
-offset_right = 512.0
-offset_bottom = 512.0
+offset_left = 875.0
+offset_top = 22.0
+offset_right = 1133.0
+offset_bottom = 280.0
 mouse_default_cursor_shape = 2
 texture = SubResource("ViewportTexture_8ksqx")
+expand_mode = 1
 
 [node name="Node3D" type="Node3D" parent="."]
 
 [node name="Camera3D" type="Camera3D" parent="Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.68447)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.15678, 2.68447)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D"]
-mesh = SubResource("BoxMesh_ol6g4")
+mesh = SubResource("BoxMesh_pol1q")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5665, 0)
@@ -143,8 +123,3 @@ shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="Node3D"]
 environment = SubResource("Environment_l5ono")
-
-[node name="subviewpoint_input" type="Node" parent="Node3D"]
-script = SubResource("GDScript_uvsfh")
-
-[node name="Node3D_input" type="Node3D" parent="Node3D"]
