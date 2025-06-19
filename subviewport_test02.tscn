@@ -3,21 +3,6 @@
 [ext_resource type="Script" uid="uid://l48mxrrp55ib" path="res://scripts/static_body_rotate.gd" id="3_s61iv"]
 [ext_resource type="Script" uid="uid://b72dceauioxof" path="res://scripts/control_input_test01.gd" id="4_u5oqt"]
 
-[sub_resource type="GDScript" id="GDScript_pol1q"]
-script/source = "extends Camera3D
-
-@onready var raycast: RayCast3D = $RayCast3D
-
-func _ready() -> void:
-	pass
-	
-func _process(delta: float) -> void:
-	#print(\"test\")
-	#if raycast.is_colliding():
-		#print(\"hit\", raycast.get_collision_point())
-	pass
-"
-
 [sub_resource type="BoxMesh" id="BoxMesh_ol6g4"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gxbh7"]
@@ -44,6 +29,9 @@ size = Vector3(0.1, 0.1, 0.1)
 [sub_resource type="ViewportTexture" id="ViewportTexture_8ksqx"]
 viewport_path = NodePath("SubViewport")
 
+[sub_resource type="BoxMesh" id="BoxMesh_pol1q"]
+size = Vector3(1, 0.5, 1)
+
 [node name="Node" type="Node"]
 
 [node name="SubViewport" type="SubViewport" parent="."]
@@ -54,7 +42,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.12905, 0, 0)
 
 [node name="Camera3D" type="Camera3D" parent="SubViewport/Node3D2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.68447)
-script = SubResource("GDScript_pol1q")
 
 [node name="RayCast3D" type="RayCast3D" parent="SubViewport/Node3D2/Camera3D"]
 target_position = Vector3(0, 0, -5)
@@ -91,7 +78,7 @@ mesh = SubResource("BoxMesh_oqta8")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Control" type="Control" parent="CanvasLayer" node_paths=PackedStringArray("pointer")]
+[node name="Control" type="Control" parent="CanvasLayer"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -99,7 +86,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("4_u5oqt")
-pointer = NodePath("../../SubViewport/Node3D2/MeshInstance3D")
 
 [node name="Label" type="Label" parent="CanvasLayer/Control"]
 layout_mode = 0
@@ -119,10 +105,10 @@ texture = SubResource("ViewportTexture_8ksqx")
 [node name="Node3D" type="Node3D" parent="."]
 
 [node name="Camera3D" type="Camera3D" parent="Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.68447)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.15678, 2.68447)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D"]
-mesh = SubResource("BoxMesh_ol6g4")
+mesh = SubResource("BoxMesh_pol1q")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5665, 0)

@@ -102,7 +102,7 @@ mesh = SubResource("BoxMesh_oqta8")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Control" type="Control" parent="CanvasLayer" node_paths=PackedStringArray("pointer")]
+[node name="Control" type="Control" parent="CanvasLayer"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -110,7 +110,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("4_w8xc1")
-pointer = NodePath("../../SubViewport/Node3D2/MeshInstance3D")
 
 [node name="Label" type="Label" parent="CanvasLayer/Control"]
 layout_mode = 0

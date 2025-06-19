@@ -11,8 +11,8 @@ config_version=5
 [application]
 
 config/name="gd subviewport input"
-config/tags=PackedStringArray("3d", "base", "building", "experiment", "portal", "subviewport")
-run/main_scene="uid://cuxoxblg7a4rd"
+config/tags=PackedStringArray("3d", "experiment", "subviewport")
+run/main_scene="uid://rmg1bn5ew0st"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
