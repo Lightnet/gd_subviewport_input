@@ -1,7 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://dhbsdu28x7ngj"]
+[gd_scene load_steps=12 format=3 uid="uid://cn7456lmb3att"]
 
-[ext_resource type="Script" uid="uid://l48mxrrp55ib" path="res://scripts/static_body_rotate.gd" id="1_3uhwm"]
-[ext_resource type="Script" uid="uid://otrxo2htd35h" path="res://scripts/control_input_test06.gd" id="2_3uhwm"]
+[ext_resource type="Script" uid="uid://l48mxrrp55ib" path="res://scripts/static_body_rotate.gd" id="1_we02t"]
+[ext_resource type="Script" uid="uid://ckdn4nf04gjgf" path="res://scripts/control_input_test07.gd" id="2_we02t"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_ol6g4"]
 
@@ -47,7 +47,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.68447)
 target_position = Vector3(0, 0, -5)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="SubViewport/Node3D2"]
-script = ExtResource("1_3uhwm")
+script = ExtResource("1_we02t")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewport/Node3D2/StaticBody3D"]
 mesh = SubResource("BoxMesh_ol6g4")
@@ -85,7 +85,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("2_3uhwm")
+script = ExtResource("2_we02t")
 sub_viewport = NodePath("../../SubViewport")
 pointer = NodePath("../../SubViewport/Node3D2/pointer")
 
@@ -97,11 +97,13 @@ text = "Test"
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control"]
 layout_mode = 0
-offset_left = 638.0
-offset_right = 1150.0
-offset_bottom = 512.0
+offset_left = 954.0
+offset_top = 120.0
+offset_right = 1132.0
+offset_bottom = 298.0
 mouse_default_cursor_shape = 2
 texture = SubResource("ViewportTexture_8ksqx")
+expand_mode = 1
 
 [node name="Node3D" type="Node3D" parent="."]
 

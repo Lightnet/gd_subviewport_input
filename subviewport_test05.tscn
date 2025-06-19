@@ -97,10 +97,8 @@ text = "Test"
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control"]
 layout_mode = 0
-offset_left = 628.0
-offset_top = 32.0
-offset_right = 1140.0
-offset_bottom = 544.0
+offset_right = 512.0
+offset_bottom = 512.0
 mouse_default_cursor_shape = 2
 texture = SubResource("ViewportTexture_8ksqx")
 

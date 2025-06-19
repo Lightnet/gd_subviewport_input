@@ -24,9 +24,33 @@ func _input(event):
 	Note that it required Control UI to get the handle input.
 
 # Notes:
-- small size offset not working for rect texture a lot of work.
-	- 128x128 does not work
-	- 512x512 work
+- When using the texture react you need to factor the scale from subviewport size and position different.
+
+
+# control_input_test07.gd
+```
+@export var sub_viewport: SubViewport
+@onready var texture_rect: TextureRect = $TextureRect
+#...
+var texture_rect_rect = texture_rect.get_global_rect()
+var texture_rect_size = texture_rect_rect.size
+
+var sub_viewport_size = Vector2(sub_viewport.size)
+
+sub_viewport.get_viewport().push_input(event)#event push and convert
+var sub_mouse_position = sub_viewport.get_viewport().get_mouse_position()
+var sub_viewport_size = Vector2(sub_viewport.size) #convert due conflict different type
+
+# Account for TextureRect scaling
+var size_ratio = sub_viewport_size / texture_rect_size
+
+# Adjust mouse position to be relative to the TextureRect
+var mouse_position = (sub_mouse_position - texture_rect_pos) * size_ratio
+#...
+```
+	This handle mouse position correctly in subviewport raycast.
+
+	Note this could be use second camera follow. It dpend on the project.
 
 # References:
 - Godot 4 3D Mouse Tutorial
