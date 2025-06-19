@@ -35,7 +35,4 @@ func _input(event):
 - Ray-casting from the screen : Look at the mouse in 3D [GODOT]
 	- https://www.youtube.com/watch?v=mmvIkkKJVlQ
 - https://www.reddit.com/r/godot/comments/tx9x2b/a_guide_to_mouse_events_in_subviewports/
-
-
-
-# 
+- https://godotengine.org/asset-library/asset/127
